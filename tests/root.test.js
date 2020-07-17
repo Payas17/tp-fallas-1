@@ -1,5 +1,5 @@
 import client from "supertest";
-import { app } from "../index";
+import { app } from "../src";
 
 describe("root", () => {
   const ENDPOINT = "/";

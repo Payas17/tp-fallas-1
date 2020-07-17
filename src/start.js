@@ -1,4 +1,4 @@
-const config = require("./babel.config");
+const config = require("../babel.config");
 require("@babel/register")(config);
 const { app } = require('./index.js');
 
