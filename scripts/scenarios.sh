@@ -1,0 +1,1 @@
+curl --request GET --url 'http://localhost:3500/motor?rpm=121&tflp=LPT&mp=MPR&ph=100&pea=50&vps=VPN'

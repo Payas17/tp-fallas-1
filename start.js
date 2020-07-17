@@ -1,7 +1,7 @@
-// Transpile all code following this line with babel and use '@babel/preset-env' (aka ES6) preset.
-require("@babel/register")({
-  presets: ["@babel/preset-env"]
-});
+const config = require("./babel.config");
+require("@babel/register")(config);
+const { app } = require('./index.js');
 
-// Import the rest of our application.
-module.exports = require('./index.js')
+app.listen(3500, () => console.log("Running on http://localhost:3500"));
+
+module.exports = require('./index.js');
