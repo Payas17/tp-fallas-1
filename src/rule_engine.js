@@ -11,8 +11,8 @@ export class RuleEngine {
       drillRPM: rpm,
       drillingFlowMud: tflp,
       drillingMethod: mp,
-      hidrostaticPressure: ph,
-      anularSpacePressure: pea,
+      hydrostaticPressure: ph,
+      annularSpacePressure: pea,
       stringPowerVariance: vps,
     };
 
