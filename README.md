@@ -1,1 +1,62 @@
 # tp-fallas-1
+
+## Install dependencies
+```
+npm i
+```
+
+## Run tests
+```
+npm test
+```
+
+## API
+
+### Run Api
+The following command serves the api on http://localhost:3500
+```
+npm start
+```
+
+### Root
+```
+GET http://localhost:3500/
+```
+```yaml
+method: GET
+endpoint: /
+Responses:
+  - status_code: 200
+    body: "TP fallas I"
+```
+
+### Motor
+```
+GET http://localhost:3500/motor
+```
+```yaml
+method: GET
+endpoint: /motor
+Parameters:
+  rpm:
+    type: integer
+  tflp:
+    type: string
+    enum: [LPT, LPL]
+  mp:
+    type: string
+    enum: [MPR, MPD]
+  ph:
+    type: integer
+  pea:
+    type: integer
+  vps:
+    type: string
+    enum: [VPN, VPA]
+
+Responses:
+  - status_code: 200
+    body: "El pozo esta limpio"
+  - status_code: 200
+    body: "El pozo está sucio"
+```
