@@ -1,9 +1,9 @@
 import Engine from 'json-rules-engine'
-import { rule1 } from "./rules";
+import { rules } from "./rules";
  
 export class RuleEngine {
   constructor() {
-    this.engine = new Engine([rule1]);
+    this.engine = new Engine(rules);
   }
 
   async process(rpm, tflp, mp, ph, pea, vps) {
