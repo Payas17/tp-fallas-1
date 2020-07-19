@@ -23,15 +23,15 @@ export const rule2 = {
       },
       {
         fact: "stringPowerVariance",
-        operator: "notEqual",
-        value: 0
+        operator: "equal",
+        value: "VPA"
       }
     ]
   },
   event: {
     type: "dirty",
     params: {
-      message: "El pozo esta sucio"
+      message: "El pozo está sucio"
     }
   }
 };

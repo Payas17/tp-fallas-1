@@ -24,7 +24,7 @@ export const rule1 = {
       {
         fact: "stringPowerVariance",
         operator: "equal",
-        value: 0
+        value: "VPN"
       }
     ]
   },
