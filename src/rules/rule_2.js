@@ -1,37 +1,37 @@
-export const rule1 = {
+export const rule2 = {
   conditions: {
-    all: [
+    any: [
       {
         fact: "drillRPM",
-        operator: "greaterThan",
+        operator: "lessThanInclusive",
         value: 120
       },
       {
         fact: "drillingFlowMud",
         operator: "equal",
-        value: "LPT"
+        value: "LPL"
       },
       {
         fact: "drillingMethod",
         operator: "equal",
-        value: "MPR"
+        value: "MPD"
       },
       {
         fact: "hydrostaticPressure",
-        operator: "greaterThan",
+        operator: "lessThanInclusive",
         value: { fact: "annularSpacePressure" }
       },
       {
         fact: "stringPowerVariance",
-        operator: "equal",
+        operator: "notEqual",
         value: 0
       }
     ]
   },
   event: {
-    type: "clean",
+    type: "dirty",
     params: {
-      message: "El pozo esta limpio"
+      message: "El pozo esta sucio"
     }
   }
 };

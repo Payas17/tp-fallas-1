@@ -18,6 +18,6 @@ export class RuleEngine {
 
     const results = await this.engine.run(facts);
     if (results.events.length > 0) return results.events[0].params.message;
-    return "El pozo está sucio";
+    return "Se ingresaron parametros invalidos.";
   }
 }

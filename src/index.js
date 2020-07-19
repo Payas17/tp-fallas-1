@@ -13,7 +13,7 @@ app.get("/motor", async (req, res) => {
     mp.toUpperCase(),
     parseInt(ph),
     parseInt(pea),
-    vps.toUpperCase()
+    parseInt(vps),
   );
   return res.status(200).json(message);
 });
