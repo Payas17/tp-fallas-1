@@ -1,30 +1,32 @@
+import { FactsSchema } from "../facts";
+
 export const rule2 = {
   conditions: {
     any: [
       {
-        fact: "drillRPM",
+        fact: FactsSchema.drillRPM.name,
         operator: "lessThanInclusive",
         value: 120
       },
       {
-        fact: "drillingFlowMud",
+        fact: FactsSchema.drillingFlowMud.name,
         operator: "equal",
-        value: "LPL"
+        value: FactsSchema.drillingFlowMud.values.LPL
       },
       {
-        fact: "drillingMethod",
+        fact: FactsSchema.drillingMethod.name,
         operator: "equal",
-        value: "MPD"
+        value: FactsSchema.drillingMethod.values.MPD
       },
       {
-        fact: "hydrostaticPressure",
+        fact: FactsSchema.hydrostaticPressure.name,
         operator: "lessThanInclusive",
-        value: { fact: "annularSpacePressure" }
+        value: { fact: FactsSchema.annularSpacePressure.name }
       },
       {
-        fact: "stringPowerVariance",
+        fact: FactsSchema.stringPowerVariance.name,
         operator: "equal",
-        value: "VPA"
+        value: FactsSchema.stringPowerVariance.values.VPA
       }
     ]
   },
