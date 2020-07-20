@@ -16,7 +16,7 @@ export const FactsSchema = {
       MPD: "MPD"
     }
   },
-  hydrostaticPressure:{
+  hydrostaticPressure: {
     name: "hydrostaticPressure"
   },
   annularSpacePressure: {
