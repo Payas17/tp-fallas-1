@@ -1,4 +1,5 @@
 import { FactsSchema } from "../facts";
+import { events } from "../events";
 
 export const rule2 = {
   conditions: {
@@ -31,9 +32,9 @@ export const rule2 = {
     ]
   },
   event: {
-    type: "dirty",
+    type: events.dirty.type,
     params: {
-      message: "El pozo está sucio"
+      message: events.dirty.message
     }
   }
 };
