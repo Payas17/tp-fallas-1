@@ -10,7 +10,6 @@ export class RuleEngine {
 
     this.engine.on('success', (event, almanac, ruleResult) => {
       self.resultMessage = event.params.message;
-      console.log(`El pozo está limpio`);
     });
 
     this.engine.on('failure', (event, almanac, ruleResult) => {
@@ -46,8 +45,6 @@ export class RuleEngine {
 
   async process(rpm, tflp, mp, ph, pea, vps) {
     let facts = factsBuilder(rpm, tflp, mp, ph, pea, vps);
-    // const { isInvalid, meesage } = checkForInvalidParams(rpm, tflp, mp, ph, pea, vps);
-    // if (isInvalid) return meesage;
     const results = await this.engine.run(facts);
     return this.resultMessage;
   }
