@@ -20,10 +20,7 @@ export const rule1 = {
           {
             fact: FactsSchema.drillingFlowMud.name,
             operator: "in",
-            value: [
-              FactsSchema.drillingFlowMud.values.LPT,
-              FactsSchema.drillingFlowMud.values.LPL,
-            ]
+            value: Object.values(FactsSchema.drillingFlowMud.values)
           }
         ]
       },
@@ -37,10 +34,7 @@ export const rule1 = {
           {
             fact: FactsSchema.drillingMethod.name,
             operator: "in",
-            value: [
-              FactsSchema.drillingMethod.values.MPR,
-              FactsSchema.drillingMethod.values.MPD,
-            ]
+            value: Object.values(FactsSchema.drillingMethod.values)
           }
         ]
       },
@@ -59,10 +53,7 @@ export const rule1 = {
           {
             fact: FactsSchema.stringPowerVariance.name,
             operator: "in",
-            value: [
-              FactsSchema.stringPowerVariance.values.VPN,
-              FactsSchema.stringPowerVariance.values.VPA,
-            ]
+            value: Object.values(FactsSchema.stringPowerVariance.values)
           }
         ]
       }
