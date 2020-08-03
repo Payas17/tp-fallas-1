@@ -1,5 +1,5 @@
 import Engine from "json-rules-engine";
-import { rules } from "./rules";
+import { rules, ruleNames } from "./rules";
 import { factsBuilder } from "./facts";
 
 export class RuleEngine {
@@ -26,9 +26,10 @@ export class RuleEngine {
   async process(rpm, tflp, mp, ph, pea, vps) {
     let facts = factsBuilder(rpm, tflp, mp, ph, pea, vps);
     await this.engine.run(facts);
-    if (this.errors[this.rules.ParamsDomain.name]) return this.errors[this.rules.ParamsDomain.name]
-    if (this.successes[this.rules.Indeterminate.name]) return this.successes[this.rules.Indeterminate.name]
-    if (this.errors[this.rules.Clean.name]) return this.errors[this.rules.Clean.name]
-    return this.successes[this.rules.Clean.name]
+    const { paramsDomain, indeterminate, clean } = ruleNames;
+    if (this.errors[paramsDomain]) return this.errors[paramsDomain]
+    if (this.successes[indeterminate]) return this.successes[indeterminate]
+    if (this.errors[clean]) return this.errors[clean]
+    return this.successes[clean]
   }
 }

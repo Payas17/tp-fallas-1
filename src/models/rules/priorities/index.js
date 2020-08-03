@@ -1,9 +1,7 @@
-import { Clean } from "../clean";
-import { Indeterminate } from "../indeterminate";
-import { ParamsDomain } from "../paramsDomain";
+import { ruleNames } from "../internal";
 
-export const Priorities = {
-  [Clean.name]: 3,
-  [Indeterminate.name]: 2,
-  [ParamsDomain.name]: 1,
+export const priorities = {
+  [ruleNames.clean.name]: 3,
+  [ruleNames.indeterminate.name]: 2,
+  [ruleNames.paramsDomain.name]: 1,
 }

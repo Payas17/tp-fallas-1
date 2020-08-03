@@ -1,12 +1,14 @@
 import { conditions } from "./conditions";
 import { event } from "./event";
+import { priorities } from "../internal";
+import { ruleNames } from "../internal";
 import { Rule } from "json-rules-engine";
 
 export class ParamsDomain extends Rule {
   constructor() {
     super({
-      name: "paramsDomain",
-      priority: 3,
+      name: ruleNames.paramsDomain,
+      priority: priorities[ruleNames.paramsDomain],
       conditions,
       event
     });

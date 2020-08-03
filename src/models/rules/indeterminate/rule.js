@@ -1,12 +1,14 @@
 import { conditions } from "./conditions";
 import { event } from "./event";
+import { ruleNames } from "../internal";
+import { priorities } from "../internal";
 import { Rule } from "json-rules-engine";
 
 export class Indeterminate extends Rule {
   constructor() {
     super({
-      name: "indeterminate",
-      priority: 2,
+      name: ruleNames.indeterminate,
+      priority: priorities[ruleNames.indeterminate],
       conditions,
       event
     });

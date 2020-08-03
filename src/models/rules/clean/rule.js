@@ -3,13 +3,15 @@ import { events } from "../../events";
 import { operators } from "../../operators";
 import { conditions } from "./conditions";
 import { event } from "./event";
+import { ruleNames } from "../internal";
+import { priorities } from "../internal";
 import { Rule } from "json-rules-engine";
 
 export class Clean extends Rule {
   constructor() {
     super({
-      name: "clean",
-      priority: 1,
+      name: ruleNames.clean,
+      priority: priorities[ruleNames.clean],
       conditions: conditions,
       event: event
     });
