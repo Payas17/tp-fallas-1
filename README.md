@@ -59,5 +59,9 @@ Responses:
   - status_code: 200
     body: "El pozo esta limpio"
   - status_code: 200
-    body: "El pozo está sucio"
+    body: "El pozo está sucio. <error message>"
+  - status_code: 200
+    body: "Caso inconcluso"
+  - status_code: 400
+    body: "Parámetros inválidos. <error message>"
 ```
