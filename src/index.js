@@ -1,26 +1,8 @@
 import express from "express"
-import { RuleEngine, ParamsDomainError } from "./models";
+import { EngineController, RootController } from "./controllers";
 const app = express();
 
-app.get("/", (req, res) =>  res.status(200).json("TP fallas I"));
-
-app.get("/motor", async (req, res) => {
-  const ruleEngine = new RuleEngine();
-  const { rpm, tflp, mp, ph, pea, vps } = req.query;
-  try {
-    const message = await ruleEngine.process(
-      parseInt(rpm),
-      tflp.toUpperCase(),
-      mp.toUpperCase(),
-      parseInt(ph),
-      parseInt(pea),
-      vps.toUpperCase()
-    );
-    return res.status(200).json(message);
-  } catch (error) {
-    if (error instanceof ParamsDomainError) return res.status(400).json(error.message);
-    return res.status(500).json(error.message);
-  }
-});
+RootController.get(app);
+EngineController.get(app);
 
 export { app };

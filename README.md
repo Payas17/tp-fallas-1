@@ -31,13 +31,13 @@ Responses:
     body: "TP fallas I"
 ```
 
-### Motor
+### Engine
 ```
-GET http://localhost:3500/motor
+GET http://localhost:3500/engine
 ```
 ```yaml
 method: GET
-endpoint: /motor
+endpoint: /engine
 Parameters:
   rpm:
     type: integer

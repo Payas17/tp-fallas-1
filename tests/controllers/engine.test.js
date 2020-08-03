@@ -1,10 +1,10 @@
 import client from "supertest";
-import { app } from "../src";
-import { events } from "../src/models/events";
-import { FactsSchema } from "../src/models/facts";
+import { app } from "../../src";
+import { events } from "../../src/models/events";
+import { FactsSchema } from "../../src/models/facts";
 
-describe("motor", () => {
-  const ENDPOINT = "/motor";
+describe("engine", () => {
+  const ENDPOINT = "/engine";
   it("returns that is clean", async () => {
     const request = await client(app).get(ENDPOINT).query({
       rpm: 121,
