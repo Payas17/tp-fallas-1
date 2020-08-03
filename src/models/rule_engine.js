@@ -1,4 +1,4 @@
-import Engine from 'json-rules-engine';
+import Engine from "json-rules-engine";
 import { rules } from "./rules";
 import { factsBuilder } from "./facts";
 
@@ -10,13 +10,13 @@ export class RuleEngine {
     this.engine = new Engine(Object.values(rules));
     const self = this;
 
-    this.engine.on('success', (event, almanac, ruleResult) => {
+    this.engine.on("success", (event, almanac, ruleResult) => {
       const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0]
       const result = rule.onSuccess(event, almanac, ruleResult)
       if (result) self.successes[rule.name] = result;
     });
 
-    this.engine.on('failure', (event, almanac, ruleResult) => {
+    this.engine.on("failure", (event, almanac, ruleResult) => {
       const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0]
       const result = rule.onFailure(event, almanac, ruleResult)
       if (result) self.errors[rule.name] = result;
