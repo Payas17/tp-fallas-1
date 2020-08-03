@@ -6,5 +6,13 @@ export const events = {
   dirty: {
     type: "dirty",
     message: "El pozo está sucio"
+  },
+  paramsDomain: {
+    type: "paramsDomain",
+    message: "Parámetros inválidos"
+  },
+  indeterminate: {
+    type: "indeterminate",
+    message: "Caso inconcluso"
   }
 }

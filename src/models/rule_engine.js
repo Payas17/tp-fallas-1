@@ -1,52 +1,34 @@
 import Engine from 'json-rules-engine';
-import { events } from './events';
 import { rules } from "./rules";
-import { factsBuilder, FactsSchema } from "./facts";
+import { factsBuilder } from "./facts";
 
 export class RuleEngine {
-  resultMessage = '';
   constructor() {
-    this.engine = new Engine(rules);
+    this.rules = rules;
+    this.errors = {};
+    this.successes = {};
+    this.engine = new Engine(Object.values(rules));
     const self = this;
 
     this.engine.on('success', (event, almanac, ruleResult) => {
-      self.resultMessage = event.params.message;
+      const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0]
+      const result = rule.onSuccess(event, almanac, ruleResult)
+      if (result) self.successes[rule.name] = result;
     });
 
     this.engine.on('failure', (event, almanac, ruleResult) => {
-      let detail = this.filterAllConditions(ruleResult.conditions);
-      if (detail.includes('invalido')) {
-        self.resultMessage = `Parametros inválidos. ${detail}`;
-      } else {
-        self.resultMessage = `${events.dirty.message}. ${detail}`;
-      }
+      const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0]
+      const result = rule.onFailure(event, almanac, ruleResult)
+      if (result) self.errors[rule.name] = result;
     });
-  }
-
-  filterAllConditions(conditions) {
-    const detail = conditions.all.filter(condition => !condition.result)
-      .map(condition => {
-        switch (condition.operator) {
-          case 'equal':
-            return `${condition.fact} tiene que ser ${condition.value} pero fue ${condition.factResult}`;
-          case 'greaterThan':
-            if (condition.fact === FactsSchema.hydrostaticPressure.name) {
-              return `${FactsSchema.hydrostaticPressure.name} tiene que ser mayor que ${FactsSchema.annularSpacePressure.name}`;
-            }
-            return `${condition.fact} de ${condition.factResult} es muy baja`;
-          case 'in':
-            return `${condition.factResult} es un ${condition.fact} invalido`;
-          case 'all':
-            return this.filterAllConditions(condition);
-        }
-      }).join(' y ');
-  
-    return detail;
   }
 
   async process(rpm, tflp, mp, ph, pea, vps) {
     let facts = factsBuilder(rpm, tflp, mp, ph, pea, vps);
-    const results = await this.engine.run(facts);
-    return this.resultMessage;
+    await this.engine.run(facts);
+    if (this.errors["paramsDomain"]) return this.errors["paramsDomain"]
+    if (this.successes["indeterminate"]) return this.successes["indeterminate"]
+    if (this.errors["clean"]) return this.errors["clean"]
+    return this.successes["clean"]
   }
 }

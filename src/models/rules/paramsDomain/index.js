@@ -1,0 +1,1 @@
+export { ParamsDomain } from "./rule";
