@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "24.0.25",
     "babel-jest": "26.1.0",
     "express": "4.17.1",
     "jest": "26.1.0",

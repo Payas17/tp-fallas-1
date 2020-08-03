@@ -14,6 +14,7 @@ describe("motor", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
+    expect(request.status).toEqual(200);
     expect(request.body).toEqual(events.clean.message);
   });
 
@@ -27,6 +28,7 @@ describe("motor", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
+    expect(request.status).toEqual(200);
     expect(request.body).toEqual("Caso inconcluso");
   });
 
@@ -39,6 +41,7 @@ describe("motor", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
+    expect(request.status).toEqual(200);
     expect(
       request.body
     ).toEqual(
@@ -55,6 +58,7 @@ describe("motor", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
+    expect(request.status).toEqual(200);
     expect(
       request.body
     ).toEqual(
@@ -73,6 +77,7 @@ describe("motor", () => {
       pea,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
+    expect(request.status).toEqual(200);
     expect(
       request.body
     ).toEqual(
@@ -89,6 +94,7 @@ describe("motor", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPA
     });
+    expect(request.status).toEqual(200);
     expect(
       request.body
     ).toEqual(
@@ -105,6 +111,7 @@ describe("motor", () => {
       pea: 500,
       vps: FactsSchema.stringPowerVariance.values.VPA
     });
+    expect(request.status).toEqual(200);
     let expectedErrors = "drillingFlowMud tiene que ser LPT pero fue LPL";
     expectedErrors += " y drillingMethod tiene que ser MPR pero fue MPD";
     expectedErrors += " y hydrostaticPressure tiene que ser mayor que annularSpacePressure";
@@ -121,6 +128,7 @@ describe("motor", () => {
       pea: 50,
       vps: "VPE"
     });
+    expect(request.status).toEqual(400);
     expect(
       request.body
     ).toEqual(

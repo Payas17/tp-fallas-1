@@ -17,6 +17,19 @@ export class Clean extends Rule {
     });
   }
 
+  static notEqualErrorMessage(condition) {
+    return `${condition.fact} tiene que ser ${condition.value} pero fue ${condition.factResult}`;
+  }
+
+  static notGreaterThanPressuresErrorMessage() {
+    const { hydrostaticPressure, annularSpacePressure } = FactsSchema;
+    return `${hydrostaticPressure.name} tiene que ser mayor que ${annularSpacePressure.name}`;
+  }
+
+  static notGreaterThanErrorMessage(condition) {
+    return `${condition.fact} de ${condition.factResult} es muy baja`;
+  }
+
   onSuccess(event, almanac, ruleResult) {
     return this.event.params.message;
   }
@@ -26,15 +39,14 @@ export class Clean extends Rule {
     const failureDetails = failedConditions.map(condition => {
       switch (condition.operator) {
         case operators.equal:
-          return `${condition.fact} tiene que ser ${condition.value} pero fue ${condition.factResult}`;
+          return Clean.notEqualErrorMessage(condition);
         case operators.greaterThan:
           if (condition.fact === FactsSchema.hydrostaticPressure.name) {
-            return `${FactsSchema.hydrostaticPressure.name} tiene que ser mayor que ${FactsSchema.annularSpacePressure.name}`;
+            return Clean.notGreaterThanPressuresErrorMessage();
           }
-          return `${condition.fact} de ${condition.factResult} es muy baja`;
+          return Clean.notGreaterThanErrorMessage(condition);
       }
     });
-    almanac.addRuntimeFact("clean", false)
     return `${events.dirty.message}. ${failureDetails.join(" y ")}`;
   }
 }
