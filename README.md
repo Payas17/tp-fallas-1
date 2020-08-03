@@ -1,4 +1,4 @@
-# tp-fallas-1
+# TP Fallas I
 Trabajo Práctico de la materia 75.67. Sistemas automáticos de diagnostico y deteccion de fallas I, 1° C 2020, FIUBA
 
 ## Install dependencies
