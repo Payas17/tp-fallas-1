@@ -20,7 +20,7 @@ export class ParamsDomain extends Rule {
   onFailure(event, almanac, ruleResult) {
     const failedConditions = ruleResult.conditions.all.filter(condition => !condition.result);
     const result = failedConditions.map(condition => {
-      return `Parametros inválidos. ${condition.factResult} es un ${condition.fact} invalido`;
+      return `Parámetros inválidos. ${condition.factResult} es un ${condition.fact} invalido`;
     })
     return result.join(" y ");
   }

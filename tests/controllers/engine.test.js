@@ -29,7 +29,7 @@ describe("engine", () => {
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
     expect(request.status).toEqual(200);
-    expect(request.body).toEqual("Caso inconcluso");
+    expect(request.body).toEqual(events.indeterminate.message);
   });
 
   it("returns that is not clean if drillingFlowMud is not LPT", async () => {
@@ -132,7 +132,7 @@ describe("engine", () => {
     expect(
       request.body
     ).toEqual(
-      "Parametros inválidos. VPE es un stringPowerVariance invalido"
+      "Parámetros inválidos. VPE es un stringPowerVariance invalido"
     );
   });
 

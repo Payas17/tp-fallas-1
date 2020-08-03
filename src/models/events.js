@@ -1,7 +1,7 @@
 export const events = {
   clean: {
     type: "clean",
-    message: "El pozo esta limpio"
+    message: "El pozo está limpio"
   },
   dirty: {
     type: "dirty",
