@@ -37,13 +37,13 @@ export class Clean extends Rule {
     const failedConditions = ruleResult.conditions.all.filter(condition => !condition.result);
     const failureDetails = failedConditions.map(condition => {
       switch (condition.operator) {
-        case operators.equal:
-          return Clean.notEqualErrorMessage(condition);
-        case operators.greaterThan:
-          if (condition.fact === FactsSchema.hydrostaticPressure.name) {
-            return Clean.notGreaterThanPressuresErrorMessage();
-          }
-          return Clean.notGreaterThanErrorMessage(condition);
+      case operators.equal:
+        return Clean.notEqualErrorMessage(condition);
+      case operators.greaterThan:
+        if (condition.fact === FactsSchema.hydrostaticPressure.name) {
+          return Clean.notGreaterThanPressuresErrorMessage();
+        }
+        return Clean.notGreaterThanErrorMessage(condition);
       }
     });
     return `${events.dirty.message}. ${failureDetails.join(" y ")}`;
