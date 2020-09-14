@@ -14,11 +14,11 @@ export class Indeterminate extends Rule {
     });
   }
 
-  onSuccess(event, almanac, ruleResult) {
+  onSuccess() {
     return this.event.params.message;
   }
 
-  onFailure(event, almanac, ruleResult) {
+  onFailure() {
     return undefined;
   }
 }

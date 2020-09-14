@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/start.js",
-    "test": "jest --colors --verbose=false --config=./jest.config.js"
+    "test": "jest --colors --verbose=false --config=./jest.config.js",
+    "lint": "eslint .",
+    "fix:lint": "eslint . --fix"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +22,9 @@
   "devDependencies": {
     "@babel/core": "7.10.5",
     "@babel/preset-env": "7.10.4",
-    "@babel/register": "7.10.5"
+    "@babel/register": "7.10.5",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
   }
 }

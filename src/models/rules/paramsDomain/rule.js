@@ -14,8 +14,7 @@ export class ParamsDomain extends Rule {
     });
   }
 
-  onSuccess(event, almanac, ruleResult) {
-  }
+  onSuccess() {}
 
   onFailure(event, almanac, ruleResult) {
     const failedConditions = ruleResult.conditions.all.filter(condition => !condition.result);

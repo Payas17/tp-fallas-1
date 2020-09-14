@@ -30,7 +30,7 @@ export class Clean extends Rule {
     return `${condition.fact} de ${condition.factResult} es muy baja`;
   }
 
-  onSuccess(event, almanac, ruleResult) {
+  onSuccess() {
     return this.event.params.message;
   }
 
