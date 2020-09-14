@@ -1,4 +1,5 @@
 import { ParamsDomainError, RuleEngine } from "../models";
+import { StatusCodes } from "http-status-codes";
 
 export const EngineController = {
   get: app => app.get("/engine", async (req, res) => {
@@ -13,10 +14,11 @@ export const EngineController = {
         parseInt(pea),
         vps.toUpperCase()
       );
-      return res.status(200).json(message);
+      return res.status(StatusCodes.OK).json(message);
     } catch (error) {
-      if (error instanceof ParamsDomainError) return res.status(400).json(error.message);
-      return res.status(500).json(error.message);
+      if (error instanceof ParamsDomainError)
+        return res.status(StatusCodes.BAD_REQUEST).json(error.message);
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error.message);
     }
   })
 };

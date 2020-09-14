@@ -2,6 +2,7 @@ import client from "supertest";
 import { app } from "../../src";
 import { events } from "../../src/models/events";
 import { FactsSchema } from "../../src/models/facts";
+import { StatusCodes } from "http-status-codes";
 
 describe("engine", () => {
   const ENDPOINT = "/engine";
@@ -28,7 +29,7 @@ describe("engine", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     expect(request.body).toEqual(events.indeterminate.message);
   });
 
@@ -41,7 +42,7 @@ describe("engine", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     expect(
       request.body
     ).toEqual(
@@ -58,7 +59,7 @@ describe("engine", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     expect(
       request.body
     ).toEqual(
@@ -77,7 +78,7 @@ describe("engine", () => {
       pea,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     expect(
       request.body
     ).toEqual(
@@ -94,7 +95,7 @@ describe("engine", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPA
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     expect(
       request.body
     ).toEqual(
@@ -111,7 +112,7 @@ describe("engine", () => {
       pea: 500,
       vps: FactsSchema.stringPowerVariance.values.VPA
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     let expectedErrors = "drillingFlowMud tiene que ser LPT pero fue LPL";
     expectedErrors += " y drillingMethod tiene que ser MPR pero fue MPD";
     expectedErrors += " y hydrostaticPressure tiene que ser mayor que annularSpacePressure";
@@ -128,7 +129,7 @@ describe("engine", () => {
       pea: 50,
       vps: "VPE"
     });
-    expect(request.status).toEqual(400);
+    expect(request.status).toEqual(StatusCodes.BAD_REQUEST);
     expect(
       request.body
     ).toEqual(
