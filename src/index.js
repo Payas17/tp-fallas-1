@@ -1,4 +1,4 @@
-import express from "express"
+import express from "express";
 import { EngineController, RootController } from "./controllers";
 const app = express();
 

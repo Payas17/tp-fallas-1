@@ -12,14 +12,14 @@ export class RuleEngine {
     const self = this;
 
     this.engine.on("success", (event, almanac, ruleResult) => {
-      const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0]
-      const result = rule.onSuccess(event, almanac, ruleResult)
+      const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0];
+      const result = rule.onSuccess(event, almanac, ruleResult);
       if (result) self.successes[rule.name] = result;
     });
 
     this.engine.on("failure", (event, almanac, ruleResult) => {
-      const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0]
-      const result = rule.onFailure(event, almanac, ruleResult)
+      const rule = Object.values(self.rules).filter(rule => rule.name === event.type)[0];
+      const result = rule.onFailure(event, almanac, ruleResult);
       if (result) self.errors[rule.name] = result;
     });
   }

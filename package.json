@@ -17,7 +17,8 @@
     "express": "4.17.1",
     "jest": "26.1.0",
     "json-rules-engine": "5.0.3",
-    "supertest": "4.0.2"
+    "supertest": "4.0.2",
+    "winston": "3.3.3"
   },
   "devDependencies": {
     "@babel/core": "7.10.5",

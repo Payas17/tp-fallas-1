@@ -15,4 +15,4 @@ export const events = {
     type: "indeterminate",
     message: "Caso inconcluso"
   }
-}
+};
