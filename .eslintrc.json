@@ -21,6 +21,7 @@
     "space-before-blocks": "error",
     "template-curly-spacing": "error",
     "no-trailing-spaces": "error",
-    "no-useless-constructor": "error"
+    "no-useless-constructor": "error",
+    "max-len": ["error", { "code": 100 }]
   }
 }
