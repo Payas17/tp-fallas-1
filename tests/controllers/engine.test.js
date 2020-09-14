@@ -15,7 +15,7 @@ describe("engine", () => {
       pea: 50,
       vps: FactsSchema.stringPowerVariance.values.VPN
     });
-    expect(request.status).toEqual(200);
+    expect(request.status).toEqual(StatusCodes.OK);
     expect(request.body).toEqual(events.clean.message);
   });
 

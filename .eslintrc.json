@@ -32,6 +32,7 @@
     "comma-dangle": "error",
     "curly": ["error", "multi-or-nest", "consistent"],
     "eqeqeq": "error",
-    "no-multi-spaces": "error"
+    "no-multi-spaces": "error",
+    "no-magic-numbers": ["error", { "ignoreArrayIndexes": true }]
   }
 }
