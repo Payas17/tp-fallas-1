@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/start.js",
-    "test": "jest --colors --verbose=false --config=./jest.config.js",
+    "test": "npm run lint && jest --colors --verbose=false --config=./jest.config.js",
     "lint": "eslint .",
     "fix:lint": "eslint . --fix"
   },
