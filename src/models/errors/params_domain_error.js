@@ -1,5 +1,1 @@
-export class ParamsDomainError extends Error {
-  constructor(message) {
-    super(message);
-  }
-}
+export class ParamsDomainError extends Error {}

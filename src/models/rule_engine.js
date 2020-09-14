@@ -1,7 +1,7 @@
+import { ruleNames, rules } from "./rules";
 import Engine from "json-rules-engine";
-import { rules, ruleNames } from "./rules";
-import { factsBuilder } from "./facts";
 import { ParamsDomainError } from "./errors";
+import { factsBuilder } from "./facts";
 
 export class RuleEngine {
   constructor() {

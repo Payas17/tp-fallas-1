@@ -1,11 +1,10 @@
-import { FactsSchema } from "../../facts";
-import { events } from "../../events";
-import { operators } from "../../operators";
+import { priorities, ruleNames } from "../internal";
 import { conditions } from "./conditions";
 import { event } from "./event";
-import { ruleNames } from "../internal";
-import { priorities } from "../internal";
+import { events } from "../../events";
+import { FactsSchema } from "../../facts";
 import { Rule } from "json-rules-engine";
+import { operators } from "../../operators";
 
 export class Clean extends Rule {
   constructor() {

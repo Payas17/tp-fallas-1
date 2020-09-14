@@ -17,6 +17,10 @@
     "quotes": ["error", "double"],
     "no-console": "error",
     "semi": "error",
-    "no-extra-semi": "error"
+    "no-extra-semi": "error",
+    "space-before-blocks": "error",
+    "template-curly-spacing": "error",
+    "no-trailing-spaces": "error",
+    "no-useless-constructor": "error"
   }
 }
