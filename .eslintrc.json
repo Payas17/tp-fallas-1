@@ -26,9 +26,12 @@
     "indent": ["error", 2],
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "eol-last": ["error", "always"],
-    "brace-style": "error",
+    "brace-style": ["error", "1tbs"],
     "camelcase": "error",
     "capitalized-comments": "error",
-    "comma-dangle": "error"
+    "comma-dangle": "error",
+    "curly": ["error", "multi-or-nest", "consistent"],
+    "eqeqeq": "error",
+    "no-multi-spaces": "error"
   }
 }

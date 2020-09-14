@@ -40,9 +40,8 @@ export class Clean extends Rule {
       case operators.equal:
         return Clean.notEqualErrorMessage(condition);
       case operators.greaterThan:
-        if (condition.fact === FactsSchema.hydrostaticPressure.name) {
+        if (condition.fact === FactsSchema.hydrostaticPressure.name)
           return Clean.notGreaterThanPressuresErrorMessage();
-        }
         return Clean.notGreaterThanErrorMessage(condition);
       }
     });
