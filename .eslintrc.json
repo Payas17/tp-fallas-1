@@ -28,6 +28,7 @@
     "eol-last": ["error", "always"],
     "brace-style": "error",
     "camelcase": "error",
-    "capitalized-comments": "error"
+    "capitalized-comments": "error",
+    "comma-dangle": "error"
   }
 }

@@ -6,5 +6,5 @@ export const factsBuilder = (rpm, tflp, mp, ph, pea, vps) => ({
   [FactsSchema.drillingMethod.name]: mp,
   [FactsSchema.hydrostaticPressure.name]: ph,
   [FactsSchema.annularSpacePressure.name]: pea,
-  [FactsSchema.stringPowerVariance.name]: vps,
+  [FactsSchema.stringPowerVariance.name]: vps
 });
