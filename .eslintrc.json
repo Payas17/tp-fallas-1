@@ -23,6 +23,8 @@
     "no-trailing-spaces": "error",
     "no-useless-constructor": "error",
     "max-len": ["error", { "code": 100 }],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "eol-last": ["error", "always"]
   }
 }
